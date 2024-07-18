@@ -12,6 +12,7 @@ const showToast = (message, type) => {
   });
 };
 
+// generate QR codes for a list of urls and update the state
 export const handleGenerateQRCodes = async (urls, setQrcodes) => {
   try {
     for (const item of urls) {
@@ -21,6 +22,7 @@ export const handleGenerateQRCodes = async (urls, setQrcodes) => {
       }
     }
 
+    // Generate QR codes as SVG strings
     const qrCodePromises = urls.map(async (item) => {
       const { url, width, margin, primaryColor, secondaryColor } = item;
 
@@ -57,18 +59,21 @@ export const handleAddUrl = (urls, setUrls) => {
   ]);
 };
 
+// update the URL value of a specific url
 export const handleUrlChange = (index, value, urls, setUrls) => {
   const updatedUrls = [...urls];
   updatedUrls[index].url = value;
   setUrls(updatedUrls);
 };
 
+// show customization of a specific url
 export const handleShowCustomization = (index, urls, setUrls) => {
   const updatedUrls = [...urls];
   updatedUrls[index].showOptions = !updatedUrls[index].showOptions;
   setUrls(updatedUrls);
 };
 
+//update customization fields for a specific url and validate color choices
 export const handleCustomizationChange = (
   index,
   field,
@@ -102,6 +107,7 @@ export const handleDeleteUrl = (index, urls, setUrls) => {
   setUrls(updatedUrls);
 };
 
+// Used for the color picker to handle color
 export const handleColorChange = (
   color,
   type,
