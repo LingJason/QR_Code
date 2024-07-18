@@ -2,8 +2,7 @@ import React from "react";
 import { handleDownload } from "../utils/helpers";
 import "../styles/QRCard.css";
 
-export default function QRCard ({ qrcodes }) {
-
+export default function QRCard({ qrcodes }) {
   return (
     <div className="qr-code-section">
       {qrcodes.map((svg, index) => (
@@ -11,7 +10,7 @@ export default function QRCard ({ qrcodes }) {
       ))}
     </div>
   );
-};
+}
 
 const QRCodeItem = ({ svg, index }) => (
   <div className="qr-code mb-3">
