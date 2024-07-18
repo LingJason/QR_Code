@@ -4,16 +4,19 @@ This is a take home assignment that takes an array of strings and returns a QR c
 ## Final Product
 
 ### Create QR Code
+![Create](https://github.com/LingJason/QR_Code/blob/main/src/assets/Create.gif)
 
 ### Edit QR Code
+![Edit](https://github.com/LingJason/QR_Code/blob/main/src/assets/Edit.gif)
 
 ### Delete QR Code
-
+![Delete](https://github.com/LingJason/QR_Code/blob/main/src/assets/Delete.gif)
 
 ### Download QR Code
+![Download](https://github.com/LingJason/QR_Code/blob/main/src/assets/download.gif)
 
 ### Error Handling
-
+![Error](https://github.com/LingJason/QR_Code/blob/main/src/assets/Edit.gif)
 
 ## Running the application
 
