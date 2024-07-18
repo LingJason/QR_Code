@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { GithubPicker } from "react-color";
 import { handleColorChange } from "../utils/helpers";
-import DisplayColor from "./DisplayColor";
+import DisplayColor from "../components/DisplayColor";
 
 const colorSet = [
   "black",
