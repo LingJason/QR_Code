@@ -32,10 +32,6 @@
 }
 
 @media (max-width: 768px) {
-  .left-panel, .right-panel {
-    padding: 0;
-  }
-
   .url-section {
     margin-bottom: 20px;
   }
