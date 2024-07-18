@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./Home.css";
+import "../styles/Home.css";
 import Navbar from "../components/Navbar";
-import UrlCard from "./UrlCard";
-import QRCard from "./QRCard";
+import UrlCard from "../components/UrlCard";
+import QRCard from "../components/QRCard";
 import {
   handleGenerateQRCodes,
   handleAddUrl,
@@ -11,7 +11,7 @@ import {
   handleShowCustomization,
   handleCustomizationChange,
   handleDeleteUrl,
-} from "./handlers";
+} from "../utils/helpers";
 
 export default function Home() {
   const [urls, setUrls] = useState([

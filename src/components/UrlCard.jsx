@@ -1,9 +1,9 @@
 import React from "react";
-import "../styles/UrlCard";
+import "../styles/UrlCard.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { GithubPicker } from "react-color";
-import { handleColorChange } from "./handlers";
+import { handleColorChange } from "../utils/helpers";
 import DisplayColor from "./DisplayColor";
 
 const colorSet = [

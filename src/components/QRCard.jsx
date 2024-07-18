@@ -1,8 +1,8 @@
 import React from "react";
-import { handleDownload } from "./handlers";
-import "./QRCard.css";
+import { handleDownload } from "../utils/helpers";
+import "../styles/QRCard.css";
 
-export default function QRCode ({ qrcodes }) {
+export default function QRCard ({ qrcodes }) {
 
   return (
     <div className="qr-code-section">
