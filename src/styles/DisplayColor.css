@@ -1,0 +1,7 @@
+.display-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-left: 10px;
+  border: 1px solid #ccc;
+}
