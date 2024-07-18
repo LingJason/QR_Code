@@ -1,0 +1,40 @@
+.url-section {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.input-number {
+  margin-right: 10px;
+  align-self: center;
+}
+
+.customization-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 992px) {
+  .customization-section {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .customization-item {
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .customization-item label {
+    margin-right: 10px;
+  }
+
+  .customization-item:last-child {
+    margin-bottom: 0;
+  }
+}
