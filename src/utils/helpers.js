@@ -1,20 +1,23 @@
 import QRCode from "qrcode";
 import { toast } from "react-toastify";
 
+const showToast = (message, type) => {
+  toast[type](message, {
+    position: "top-right",
+    autoClose: 1000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    progress: undefined,
+    theme: "light",
+  });
+};
+
 export const handleGenerateQRCodes = async (urls, setQrcodes) => {
   try {
-    // Validate colors before generating QR codes
     for (const item of urls) {
       if (item.primaryColor === item.secondaryColor) {
-        toast.error("Primary and secondary colors cannot be the same", {
-          position: "top-right",
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          progress: undefined,
-          theme: "light",
-        });
-        return; // Stop execution if any pair of colors are the same
+        showToast("Primary and secondary colors cannot be the same", "error");
+        return;
       }
     }
 
@@ -34,16 +37,10 @@ export const handleGenerateQRCodes = async (urls, setQrcodes) => {
 
     const qrCodes = await Promise.all(qrCodePromises);
     setQrcodes(qrCodes.filter((code) => code !== ""));
-    toast.success("QR Code Created", {
-      position: "top-right",
-      autoClose: 1000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      progress: undefined,
-      theme: "light",
-    });
+    showToast("QR Code Created", "success");
   } catch (err) {
     console.error(err);
+    showToast("An error occurred while generating QR codes", "error");
   }
 };
 
@@ -81,27 +78,18 @@ export const handleCustomizationChange = (
 ) => {
   const updatedUrls = [...urls];
 
-  if (field === "primaryColor" && value === updatedUrls[index].secondaryColor) {
-    toast.error("Primary color can't be the same as Secondary", {
-      position: "top-right",
-      autoClose: 1000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      progress: undefined,
-      theme: "light",
-    });
-    return;
-  }
-
-  if (field === "secondaryColor" && value === updatedUrls[index].primaryColor) {
-    toast.error("Secondary color can't be the same as Primary", {
-      position: "top-right",
-      autoClose: 1000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      progress: undefined,
-      theme: "light",
-    });
+  if (
+    (field === "primaryColor" && value === updatedUrls[index].secondaryColor) ||
+    (field === "secondaryColor" && value === updatedUrls[index].primaryColor)
+  ) {
+    showToast(
+      `${
+        field === "primaryColor" ? "Primary" : "Secondary"
+      } color can't be the same as ${
+        field === "primaryColor" ? "Secondary" : "Primary"
+      }`,
+      "error"
+    );
     return;
   }
 
@@ -122,27 +110,18 @@ export const handleColorChange = (
   index,
   onCustomizationChange
 ) => {
-  if (type === "primaryColor" && color.hex === secondaryColor) {
-    toast.error("Primary color can't be the same as Secondary", {
-      position: "top-right",
-      autoClose: 1000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      progress: undefined,
-      theme: "light",
-    });
-    return;
-  }
-
-  if (type === "secondaryColor" && color.hex === primaryColor) {
-    toast.error("Secondary color can't be the same as Primary", {
-      position: "top-right",
-      autoClose: 1000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      progress: undefined,
-      theme: "light",
-    });
+  if (
+    (type === "primaryColor" && color.hex === secondaryColor) ||
+    (type === "secondaryColor" && color.hex === primaryColor)
+  ) {
+    showToast(
+      `${
+        type === "primaryColor" ? "Primary" : "Secondary"
+      } color can't be the same as ${
+        type === "primaryColor" ? "Secondary" : "Primary"
+      }`,
+      "error"
+    );
     return;
   }
 
@@ -161,17 +140,6 @@ export const handleDownload = (svg, index) => {
     document.body.removeChild(link);
   };
 
-  const handleSuccess = () => {
-    toast.success(`Downloaded QR Code ${index + 1}`, {
-      position: "top-right",
-      autoClose: 1000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      progress: undefined,
-      theme: "light",
-    });
-  };
-
   downloadSVG();
-  handleSuccess();
+  showToast(`Downloaded QR Code ${index + 1}`, "success");
 };
